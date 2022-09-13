@@ -2,7 +2,7 @@
 
 修改現成環境下的 Bash RC。
 
-## Git Ignore`
+## Git Ignore
 
 * 在 `packages` 目錄下建立一個 `.gitignore`，檔案內容為：
 
