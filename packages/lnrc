@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DIR=$(cd `dirname $0`; pwd)
+
+if [ ! -f $HOME/.bashrc_original_backup ]; then
+	mv $HOME/.bashrc $HOME/.bashrc_original_backup
+fi
+
+unlink $HOME/.bashrc
+ln -s $DIR/.bashrc $HOME/.bashrc
+
+source $HOME/.bashrc
