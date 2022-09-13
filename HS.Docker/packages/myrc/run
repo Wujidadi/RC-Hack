@@ -5,7 +5,7 @@ DIR=$(cd `dirname $0`; pwd)
 # Set Timezone
 ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 
-# Install softwares that I need
+# Install softwares that I NEED
 yum -y install vim git less zsh
 
 # Bash
