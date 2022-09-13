@@ -1,0 +1,31 @@
+#!/bin/bash
+
+DIR=$(cd `dirname $0`; pwd)
+
+# Set Timezone
+ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+
+# Install softwares that I need
+yum -y install vim git less zsh
+
+# Bash
+if [ ! -f $HOME/.bashrc_original_backup ]; then
+	mv $HOME/.bashrc $HOME/.bashrc_original_backup
+fi
+unlink $HOME/.bashrc
+ln -s $DIR/.bashrc $HOME/.bashrc
+source $HOME/.bashrc
+
+# Vim
+unlink $HOME/.vimrc
+ln -s $DIR/.vimrc $HOME/.vimrc
+
+# Oh My Zsh
+echo Y | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+curl -L https://raw.github.com/Wujidadi/Ubuntu-RC/main/root.zshrc -o $HOME/.zshrc
+curl -L https://raw.github.com/Wujidadi/Ubuntu-RC/main/myzshtheme.zsh-theme -o $HOME/.oh-my-zsh/themes/myzshtheme.zsh-theme;\
+curl -L https://raw.github.com/Wujidadi/Ubuntu-RC/main/myrootzshtheme.zsh-theme -o $HOME/.oh-my-zsh/themes/myrootzshtheme.zsh-theme;\
+git config --global core.pager 'less --raw-control-chars'
+chsh -s /bin/zsh
+/bin/bash -c "touch $HOME/.oh-my-zsh/cache/{.zsh-update,grep-alias}"
+
