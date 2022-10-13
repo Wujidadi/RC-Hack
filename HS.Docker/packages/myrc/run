@@ -50,3 +50,8 @@ ln -s $DIR/.zshrc $HOME/.zshrc
 if [ ! command -v node &> /dev/null ]; then
     yum -y install nodejs npm
 fi
+
+# Vue CLI
+if [ ! command -v vue &> /dev/null ]; then
+    npm install -g @vue/cli
+fi
