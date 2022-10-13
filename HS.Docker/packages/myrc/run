@@ -45,3 +45,8 @@ if [ ! -f $HOME/.zshrc ] || [ ! -d $HOME/.oh-my-zsh ]; then
 fi
 unlink $HOME/.zshrc
 ln -s $DIR/.zshrc $HOME/.zshrc
+
+# Node
+if [ ! command -v node &> /dev/null ]; then
+    yum -y install nodejs npm
+fi
